@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="rmg.master.cs" Inherits="metric_generator.rmg" %>
+
+<!DOCTYPE html>
+
+<%--
+        Metrix RMG: (R)apid (M)etrics (G)enerator Version 1.0
+        Written and Coded by Adam Szablya
+        Project Started on:11/15/2014
+
+        Licencing Information:
+        Metrix RMG Version 1.0 is freely useable and re-distributable
+        under the GNU General Public Licence version 3.
+        
+    --%>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>RMG</title>
+    <!--Load the Google API,jquery, and javascript-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/GUIctl.js"></script>
+    <!--style sheets here -->
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+
+    <!--Master page header formatting starts here-->        
+
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <div id="title" class="title">
+            <h1 class="header">&nbsp; Metrix RMG:The (R)apid (M)etrics (G)enerator</h1>
+            <h5 class="header">&nbsp; Written and designed by Adam Szablya -- Licenced under GNU: GPL v3</h5>
+    </div>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
