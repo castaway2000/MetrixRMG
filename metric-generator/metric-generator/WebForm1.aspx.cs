@@ -23,6 +23,10 @@ namespace metric_generator
     {
 
         protected DataSet ds;
+        /*=======================================================\
+           Change the SQL connection to your own sql/mysql server
+         * the default database used is AdventureWorks
+        \=======================================================*/
         public SqlConnection con = new SqlConnection(@"Data Source=BLAZE-TURBO;Initial Catalog=AdventureWorks;Integrated Security=True");
       
         protected void Page_Load(object sender, EventArgs e)

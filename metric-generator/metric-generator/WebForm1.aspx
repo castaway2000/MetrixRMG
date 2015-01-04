@@ -12,13 +12,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+/*=============================\
+   Javascript graph generator
+\=============================*/
         google.setOnLoadCallback(function () {
             var newdata = new google.visualization.DataTable();
             newdata.addColumn('string', 'date');
             newdata.addColumn('number', 'top sales')
             var array = [
-        <%
-        //itterare over the rows in the table using C# asp
+      
+                <%
+/*======================================================\
+ Itterare over the rows in the table using code behind
+ This is temporary, formatting shall be done exclusivly
+ in SQL.
+\======================================================*/
         foreach (DataRow row in this.ds.Tables[0].Rows)
         {
             Response.Write("[\"");
@@ -31,29 +39,36 @@
             ];
             newdata.addRows(array);
 
+/*==========================================\
+  TODO: make options user defined variables
+\==========================================*/
             var options = {
                 'title': "things",//document.getElementById(title),
                 'width': 400, //document.getElementById(width),
                 'height': 400 //document.getElementById(height),
                 //'is3D': true
             };
-            //var ChartType = document.getElementById('graphselector').value;
+            //TODO: make ChartType a working variable 
+            //var ChartType = document.getElementById('graphselector').value; 
             var sqldatachart1 = new google.visualization.BarChart(document.getElementById('grid'));
             sqldatachart1.draw(newdata, options);
         });
     </script>
 </asp:Content>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<!--------------------------- 
+    HTML / GUI starts here  
+----------------------------->
 
     <!--Div that will hold the charts-->
- 
     <div id="grid" style="width: auto; height: auto"></div>
     <br />
     <!--data selection tick boxes and button -->
     <div id="selectionID" class="selection">
         <form action="">
-            <textarea rows="10" cols="90" id="sqlbox">Raw SQL query here</textarea>
+            <textarea rows="10" cols="90" id="sqlbox">"Raw SQL query here"</textarea>
          <%--   <p>
             <font size="2"><strong>Note:</strong>
                 Destructive SQL query's will not work. (ie. Drop, Delete, Insert)

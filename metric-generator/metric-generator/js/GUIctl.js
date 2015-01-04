@@ -6,28 +6,29 @@
         Licencing Information:
         Metrix RMG Version 1.0 is freely useable and re-distributable
         under the GNU General Public Licence version 3.
-*/
-$(document).ready(function () {
-    $('#grid').draggable();
-
-// Load the Visualization API
+//*/
 google.load('visualization', '1.0', { 'packages': ['corechart'] });
-google.setOnLoadCallback(drawChart);
-//variables start below here
-var sqlQuery = document.getElementById("sqlbox").value;
-//Code starts below here
+//$(document).ready(function () {
+//    $('#grid').draggable();
 
-function drawChart() {
-    // Create the data table.
+// //Load the Visualization API
 
+//google.setOnLoadCallback(drawChart);
+////variables start below here
+////var sqlQuery = document.getElementById("sqlbox").value;
+////Code starts below here
 
-    // Set chart options
-    var options = {
-        'title': document.getElementById("title").value,
-        'width': document.getElementById("width").value,
-        'height': document.getElementById("height").value
-    };
+//function drawChart() {
+//     //Create the data table.
 
 
-}
-});
+//     //Set chart options
+//    var options = {
+//        'title': "thingsGUIctl" //document.getElementById("title").value,
+//        'width': 400 //document.getElementById("width").value,
+//        'height': 400 //document.getElementById("height").value
+//    };
+
+
+//}
+//});
