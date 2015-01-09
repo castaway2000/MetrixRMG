@@ -13,6 +13,15 @@ namespace metric_generator {
     public partial class WebForm1 {
         
         /// <summary>
+        /// sqlbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea sqlbox;
+        
+        /// <summary>
         /// graphselector control.
         /// </summary>
         /// <remarks>
