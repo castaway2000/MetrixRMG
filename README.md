@@ -8,4 +8,7 @@ MetrixRMGv1
         under the GNU General Public Licence version 3.
         
         Instalation instructions:
-        [TODO]
+        As of now the best way to install this is to run it through the publisher from Visual Studio
+        
+        please see the following site for more detail about this:
+        http://msdn.microsoft.com/en-us/library/20yh9f1b%28v=vs.140%29.aspx
