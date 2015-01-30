@@ -21,5 +21,8 @@ MetrixRMGv1
         Instalation instructions:
         As of now the best way to install this is to run it through the publisher from Visual Studio
         
+        Prior to publishing make sure you change the connection strings in the metrix.aspx.cs 
+        page to be that of your own SQL server of choice. 
+        
         please see the following site for more detail about this:
         http://msdn.microsoft.com/en-us/library/20yh9f1b%28v=vs.140%29.aspx
