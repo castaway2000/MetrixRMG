@@ -8,7 +8,10 @@ MetrixRMGv1
         under the GNU General Public Licence version 3.
         
         
-        Metrix RMG is a (R)apid (M)etrics (G)enerator. It is designed to quickly create graphical representations          from data supplied to the tool. The end goal is to make data visually appealing and presentable to people.         It can be used for generating various types of graphics for meetings and presentations. Its current design         is intended to be used with businesses and currently requires a hard coded database. 
+        Metrix RMG is a (R)apid (M)etrics (G)enerator. It is designed to quickly create graphical representations
+        from data supplied to the tool. The end goal is to make data visually appealing and presentable to people.
+        It can be used for generating various types of graphics for meetings and presentations. Its current design
+        is intended to be used with businesses and currently requires a hard coded database. 
         
         
         ATTENTION:
