@@ -25,6 +25,8 @@ namespace metric_generator
         protected DataSet ds;
         /*=======================================================\
            Change the SQL connection to your own sql/mysql server
+         * and the default SQL statement to your own if you want 
+         * a graph to populate on load
          * the default database used is AdventureWorks
         \=======================================================*/
         public SqlConnection con = new SqlConnection(@"Data Source=BLAZE-TURBO;Initial Catalog=AdventureWorks;Integrated Security=True");
@@ -44,15 +46,10 @@ namespace metric_generator
             Control myControl1 = FindControl("sqlbox");
             String sqldata = sqlbox.InnerText;
             return sqldata;
-
         }
 
         protected void btn1_Click(object sender, EventArgs e)
         {
-            //SqlDataAdapter ad = new SqlDataAdapter("select top 5 SA.OrderQty, SH.OrderDate " +
-            //   "as OrderDate from Sales.SalesOrderDetail as SA " +
-            //   "join Sales.SalesOrderHeader as SH " +
-            //   "on SA.SalesOrderID = SH.SalesOrderID order by SA.OrderQty desc;", con);
             SqlDataAdapter ad = new SqlDataAdapter(sqlDataInput(), con);
             ds = new DataSet();
             ad.Fill(ds);

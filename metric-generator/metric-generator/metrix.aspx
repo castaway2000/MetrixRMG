@@ -19,10 +19,8 @@
          Itterare over the rows in the table using code behind
          formatting should be done exclusivly   in SQL.
         \======================================================*/
-      //$(Document).ready(function () {
             var boxarray = [
                     <%
-
         if (this.ds != null)
         {
             foreach (DataRow row in this.ds.Tables[0].Rows)
@@ -36,14 +34,8 @@
         }
         %>
                 ];
-         //   });
     </script>
-
-
-    
-
 </asp:Content>
-
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--------------------------- 
@@ -58,17 +50,17 @@
         <form action="">
             <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
             <br />
-            Title:<input type="text" name="title" id="title">
-            Width:<input type="text" name="width" id="width">
-            Height:<input type="text" name="height" id="height">
+            Title:<input type="text" name="title" id="xtitle" value="testasp"/>
+            Width:<input type="text" name="width" id="xwidth" value="800"/>
+            Height:<input type="text" name="height" id="xheight" value="800"/>
             <br />
 
             <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown" Style="font-size: 11px" AutoPostBack="False">
-                <asp:ListItem>Select Chart</asp:ListItem>
                 <asp:ListItem Value="ColumnChart">Column Chart</asp:ListItem>
                 <asp:ListItem Value="BarChart">Bar Chart</asp:ListItem>
                 <asp:ListItem Value="LineChart">Line Chart</asp:ListItem>
                 <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
+                <asp:ListItem Value="PieChart">Pie Chart</asp:ListItem>
             </asp:DropDownList>
         </form>
         <br />
