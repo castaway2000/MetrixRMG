@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GoogleVisualizationAPI">
+      <HintPath>..\..\..\..\Visual Studio 2012\Projects\metric-generator\GoogleVisualizationAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -102,6 +105,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="rmg.Master" />
+    <None Include="Properties\PublishProfiles\rmg.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
