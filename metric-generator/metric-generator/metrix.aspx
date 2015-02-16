@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/rmg.Master" AutoEventWireup="true" CodeBehind="metrix.aspx.cs" Inherits="metric_generator.WebForm1" %>
-
 <%@ Import Namespace="System.Data" %>
 <%--Metrix RMG: (R)apid (M)etrics (G)enerator Version 1.0
         Written and Coded by Adam Szablya
@@ -17,7 +16,7 @@
         /*======================================================\
          Javascript graph generator:
          Itterare over the rows in the table using code behind
-         formatting should be done exclusivly   in SQL.
+         formatting should be done exclusivly in SQL.
         \======================================================*/
             var boxarray = [
                     <%
@@ -36,7 +35,6 @@
                 ];
     </script>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--------------------------- 
     HTML / GUI starts here  
@@ -45,17 +43,17 @@
     <!--Div that will hold the charts-->
     <div id="grid" style="width: auto; height: auto"></div>
     <br />
+
     <!--data selection tick boxes and button -->
     <div id="selectionID" class="selection">
         <form action="">
             <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
             <br />
-            Title:<input type="text" name="title" id="xtitle" value="testasp"/>
-            Width:<input type="text" name="width" id="xwidth" value="800"/>
-            Height:<input type="text" name="height" id="xheight" value="800"/>
+            Title:<input type="text" name="title" id="xtitle"/>
+            Width:<input type="text" name="width" id="xwidth"/>
+            Height:<input type="text" name="height" id="xheight"/>
             <br />
-
-            <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown" Style="font-size: 11px" AutoPostBack="False">
+        <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown" Style="font-size: 11px" AutoPostBack="False">
                 <asp:ListItem Value="ColumnChart">Column Chart</asp:ListItem>
                 <asp:ListItem Value="BarChart">Bar Chart</asp:ListItem>
                 <asp:ListItem Value="LineChart">Line Chart</asp:ListItem>
@@ -67,5 +65,4 @@
         <br />
         <asp:Button ID="DataSelectButton" runat="server" Text="Submit" OnClick="btn1_Click" class="button"></asp:Button>
     </div>
-
 </asp:Content>
