@@ -29,7 +29,7 @@ google.setOnLoadCallback(function () {
         \==========================================*/
 
         options = {
-            'title': '<% Response.Output.Write(Request.Form["title"]); %> '|| "",
+            'title': titleChk || "",
             'width': widthChk || 400,
             'height': heightChk || 400
         };

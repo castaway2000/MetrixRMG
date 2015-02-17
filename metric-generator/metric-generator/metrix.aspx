@@ -64,6 +64,6 @@
         </form>
         <br />
         <br />
-        <asp:Button ID="DataSelectButton" runat="server" Text="Submit" OnClick="btn1_Click" class="button"></asp:Button>
+        <asp:Button ID="DataSelectButton" runat="server" Text="update query" OnClick="btn1_Click" class="button"></asp:Button>
     </div>
 </asp:Content>
