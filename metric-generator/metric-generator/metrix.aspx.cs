@@ -45,7 +45,6 @@ namespace metric_generator
         protected SqlDataClass sdc = new SqlDataClass();
         protected DataSet ds;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)

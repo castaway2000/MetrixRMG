@@ -32,7 +32,7 @@
             }
         }
         %>
-                ];
+            ];
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,8 +53,9 @@
             Width:<input type="text" name="width" id="xwidth"/>
             Height:<input type="text" name="height" id="xheight"/>
             <br />
-        <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown" Style="font-size: 11px" AutoPostBack="False">
-                <asp:ListItem Value="ColumnChart">Column Chart</asp:ListItem>
+        <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown"
+                          Style="font-size: 11px" AutoPostBack="False">
+                <asp:ListItem Selected="True" Value="ColumnChart">Column Chart</asp:ListItem>
                 <asp:ListItem Value="BarChart">Bar Chart</asp:ListItem>
                 <asp:ListItem Value="LineChart">Line Chart</asp:ListItem>
                 <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
@@ -63,6 +64,6 @@
         </form>
         <br />
         <br />
-        <asp:Button ID="DataSelectButton" runat="server" Text="Submit" OnClick="btn1_Click" class="button"></asp:Button>
+        <asp:Button ID="DataSelectButton" runat="server" Text="update query" OnClick="btn1_Click" class="button"></asp:Button>
     </div>
 </asp:Content>
