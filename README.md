@@ -24,7 +24,7 @@ MetrixRMGv1
         preventing destructive queries such as DROP, INSERT, UPDATE, ect.
         However, it is not meant to be an openly direct interface to a SQL server.
         
-        Priority TODO: fix graph sizing and type selection.
+        Priority TODO: fix graph sizing.
         
         Instalation instructions:
         As of now the best way to install this is to run it through the publisher from Visual Studio
