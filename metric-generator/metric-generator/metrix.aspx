@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/rmg.Master" AutoEventWireup="true" CodeBehind="metrix.aspx.cs" Inherits="metric_generator.WebForm1" %>
+
 <%@ Import Namespace="System.Data" %>
 <%--Metrix RMG: (R)apid (M)etrics (G)enerator Version 1.0
         Written and Coded by Adam Szablya
@@ -18,7 +19,8 @@
          Itterare over the rows in the table using code behind
          formatting should be done exclusivly in SQL.
         \======================================================*/
-            var boxarray = [
+
+        var boxarray = [
                     <%
         if (this.ds != null)
         {
@@ -32,7 +34,7 @@
             }
         }
         %>
-            ];
+        ];
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -42,28 +44,22 @@
 
     <!--Div that will hold the charts-->
     <div id="grid" style="width: auto; height: auto"></div>
-    <br />
-
+    <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown"
+        Style="font-size: 11px" AutoPostBack="False">
+        <asp:ListItem Selected="True" Value="ColumnChart">Column Chart</asp:ListItem>
+        <asp:ListItem Value="BarChart">Bar Chart</asp:ListItem>
+        <asp:ListItem Value="LineChart">Line Chart</asp:ListItem>
+        <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
+        <asp:ListItem Value="PieChart">Pie Chart</asp:ListItem>
+    </asp:DropDownList>
+    <input type="checkbox" id ="imgtickbox"></input> click to activate savable images
     <!--data selection tick boxes and button -->
     <div id="selectionID" class="selection">
-        <form action="">
-            <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
-            <br />
-            Title:<input type="text" name="title" id="xtitle"/>
-            Width:<input type="text" name="width" id="xwidth"/>
-            Height:<input type="text" name="height" id="xheight"/>
-            <br />
-        <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown"
-                          Style="font-size: 11px" AutoPostBack="False">
-                <asp:ListItem Selected="True" Value="ColumnChart">Column Chart</asp:ListItem>
-                <asp:ListItem Value="BarChart">Bar Chart</asp:ListItem>
-                <asp:ListItem Value="LineChart">Line Chart</asp:ListItem>
-                <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
-                <asp:ListItem Value="PieChart">Pie Chart</asp:ListItem>
-            </asp:DropDownList>
-        </form>
+        <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
         <br />
-        <br />
+        Title:<input type="text" name="title" id="xtitle" />
+        Width:<input type="text" name="width" id="xwidth" />
+        Height:<input type="text" name="height" id="xheight" />
         <asp:Button ID="DataSelectButton" runat="server" Text="update query" OnClick="btn1_Click" class="button"></asp:Button>
     </div>
 </asp:Content>
