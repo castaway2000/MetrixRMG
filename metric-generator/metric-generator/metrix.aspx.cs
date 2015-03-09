@@ -38,6 +38,22 @@ namespace metric_generator
             ad.Fill(ds);
             return ds;
         }
+
+        public bool securitycheck(String sqltext)
+        {
+            string[] badSqlList = new string[] {"insert","Insert","INSERT",
+                                                "update","Update","UPDATE",
+                                                "delete","Delete","DELETE",
+                                                "drop","Drop", "DROP"};
+            for (int i = 0; i < badSqlList.Count(); i++)
+            {
+                if (sqltext.Contains(badSqlList[i]) == true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public partial class WebForm1 : System.Web.UI.Page
@@ -47,15 +63,24 @@ namespace metric_generator
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack == false)
-            {
-                String testsql = "select top 10 SA.OrderQty, SH.OrderDate " +
-                                 "as OrderDate from Sales.SalesOrderDetail as SA " +
-                                 "join Sales.SalesOrderHeader as SH " +
-                                 "on SA.SalesOrderID = SH.SalesOrderID " +
-                                 "order by SA.OrderQty desc;";
-                ds = sdc.SqlDataFill(testsql);
-            }
+            //if (IsPostBack == false)
+            //{
+            //    String testsql = "select top 10 SA.OrderQty, SH.OrderDate " +
+            //                     "as OrderDate from Sales.SalesOrderDetail as SA " +
+            //                     "join Sales.SalesOrderHeader as SH " +
+            //                     "on SA.SalesOrderID = SH.SalesOrderID " +
+            //                     "order by SA.OrderQty desc;";
+            //    ds = sdc.SqlDataFill(testsql);
+            //}
+        }
+
+        public void Message(string strMsg)
+        {
+            string strScript = null;
+            strScript = "<script>";
+            strScript = strScript + "alert('" + strMsg + "');";
+            strScript = strScript + "</script>";
+            Page.RegisterStartupScript("ClientScript", strScript.ToString());
         }
 
         protected String sqlDataInput()
@@ -67,7 +92,14 @@ namespace metric_generator
 
         protected void btn1_Click(object sender, EventArgs e)
         {
-            ds = sdc.SqlDataFill(sqlDataInput());
+            if (sdc.securitycheck(sqlDataInput()) == false)
+            {
+                ds = sdc.SqlDataFill(sqlDataInput());
+            }
+            else
+            {
+                Message("NO DESTRUCTIVE QUERIES ALLOWED SELECT STATEMENTS ONLY!");
+            }
         }
     }
 }
