@@ -58,14 +58,12 @@ namespace metric_generator
             }
         }
 
-
         protected String sqlDataInput()
         {
             Control myControl1 = FindControl("sqlbox");
             String sqldata = sqlbox.InnerText;
             return sqldata;
         }
-
 
         protected void btn1_Click(object sender, EventArgs e)
         {

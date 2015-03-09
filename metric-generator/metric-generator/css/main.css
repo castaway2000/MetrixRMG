@@ -14,7 +14,7 @@
 #Checkbox2 {
     width: 22px;
 }
-.button {
+/*.button {
    border-top: 1px solid #000000;
    background: #084269;
    background: -webkit-gradient(linear, left top, left bottom, from(#19a3ff), to(#084269));
@@ -44,4 +44,4 @@
 .button:active {
    border-top-color: #284152;
    background: #284152;
-   }
+   }*/
