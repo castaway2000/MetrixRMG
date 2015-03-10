@@ -57,7 +57,7 @@
     <div id="selectionID" class="selection">
         <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
         <br />
-        Title:<input type="text" name="title" runat="server" id="x1title" value="''"/>
+        Title:<input type="text" name="title" runat="server" id="xtitle" value="''"/>
         Width:<input type="text" name="width" runat="server" id="xwidth" value ="400"/>
         Height:<input type="text" name="height" runat="server" id="xheight" value="400"/>
         <asp:Button ID="DataSelectButton" Text="update query" runat="server" OnClick="btn1_Click" ></asp:Button>
