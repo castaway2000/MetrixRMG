@@ -11,7 +11,7 @@
 --%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="js/GUIctl.js"></script>
+    
     <script type="text/jquery" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript">
         /*======================================================\
@@ -36,12 +36,12 @@
         %>
         ];
     </script>
+    <script type="text/javascript" src="js/GUIctl.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--------------------------- 
     HTML / GUI starts here  
 ----------------------------->
-
     <!--Div that will hold the charts-->
     <div id="grid" style="width: auto; height: auto"></div>
     <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown"
@@ -52,14 +52,14 @@
         <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
         <asp:ListItem Value="PieChart">Pie Chart</asp:ListItem>
     </asp:DropDownList>
-    <input type="checkbox" id ="imgtickbox"></input> click to activate savable images
+    <input type="checkbox" id ="imgtickbox" /> click to activate savable images
     <!--data selection tick boxes and button -->
     <div id="selectionID" class="selection">
         <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
         <br />
-        Title:<input type="text" name="title" id="xtitle" />
-        Width:<input type="text" name="width" id="xwidth" />
-        Height:<input type="text" name="height" id="xheight" />
-        <asp:Button ID="DataSelectButton" runat="server" Text="update query" OnClick="btn1_Click" class="button"></asp:Button>
+        Title:<input type="text" name="title" runat="server" id="x1title" value="''"/>
+        Width:<input type="text" name="width" runat="server" id="xwidth" value ="400"/>
+        Height:<input type="text" name="height" runat="server" id="xheight" value="400"/>
+        <asp:Button ID="DataSelectButton" Text="update query" runat="server" OnClick="btn1_Click" ></asp:Button>
     </div>
 </asp:Content>

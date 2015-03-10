@@ -31,6 +31,33 @@ namespace metric_generator {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea sqlbox;
         
         /// <summary>
+        /// x1title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText x1title;
+        
+        /// <summary>
+        /// xwidth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText xwidth;
+        
+        /// <summary>
+        /// xheight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText xheight;
+        
+        /// <summary>
         /// DataSelectButton control.
         /// </summary>
         /// <remarks>
