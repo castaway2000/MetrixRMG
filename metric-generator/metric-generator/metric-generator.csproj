@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="metrix.aspx.cs">
       <DependentUpon>metrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="metrix.aspx.designer.cs">
       <DependentUpon>metrix.aspx</DependentUpon>

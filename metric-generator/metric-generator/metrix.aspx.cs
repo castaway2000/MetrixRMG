@@ -15,7 +15,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Text;
 
 namespace metric_generator
 {
@@ -26,13 +26,12 @@ namespace metric_generator
 
         public DataSet SqlDataFill(String sqltext)
         {
-            //TODO: Add checks to prevent destructive SQL queries.
             /*=======================================================\
                 Change the SQL connection to your own sql/mysql server
               * and the default SQL statement to your own if you want 
               * a graph to populate on load
               * the default database used is AdventureWorks
-             \=======================================================*/
+            \=======================================================*/
             SqlDataAdapter ad = new SqlDataAdapter(sqltext, con);
             ds = new DataSet();
             ad.Fill(ds);
@@ -41,13 +40,27 @@ namespace metric_generator
 
         public bool securitycheck(String sqltext)
         {
-            string[] badSqlList = new string[] {"insert","Insert","INSERT",
-                                                "update","Update","UPDATE",
-                                                "delete","Delete","DELETE",
-                                                "drop","Drop", "DROP"};
+            foreach (char c in sqltext)
+            {
+                switch (c)
+                {
+                    case '[':
+                    case ']':
+                    case '%':
+                    case '*':
+                        {
+                            return true;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+            string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate" };
             for (int i = 0; i < badSqlList.Count(); i++)
             {
-                if (sqltext.Contains(badSqlList[i]) == true)
+                if (sqltext.Split(' ').Intersect(badSqlList, StringComparer.InvariantCultureIgnoreCase).Any())
                 {
                     return true;
                 }
@@ -63,15 +76,15 @@ namespace metric_generator
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (IsPostBack == false)
-            //{
-            //    String testsql = "select top 10 SA.OrderQty, SH.OrderDate " +
-            //                     "as OrderDate from Sales.SalesOrderDetail as SA " +
-            //                     "join Sales.SalesOrderHeader as SH " +
-            //                     "on SA.SalesOrderID = SH.SalesOrderID " +
-            //                     "order by SA.OrderQty desc;";
-            //    ds = sdc.SqlDataFill(testsql);
-            //}
+            if (IsPostBack == false)
+            {
+                String testsql = "select top 10 SA.OrderQty, SH.OrderDate " +
+                                 "as OrderDate from Sales.SalesOrderDetail as SA " +
+                                 "join Sales.SalesOrderHeader as SH " +
+                                 "on SA.SalesOrderID = SH.SalesOrderID " +
+                                 "order by SA.OrderQty desc;";
+                ds = sdc.SqlDataFill(testsql);
+            }
         }
 
         public void Message(string strMsg)
@@ -98,7 +111,7 @@ namespace metric_generator
             }
             else
             {
-                Message("NO DESTRUCTIVE QUERIES ALLOWED SELECT STATEMENTS ONLY!");
+                Message("NO DESTRUCTIVE QUERIES ALLOWED. SELECT STATEMENTS ONLY!");
             }
         }
     }
