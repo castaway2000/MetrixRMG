@@ -3,18 +3,16 @@ var script = document.createElement('script');
 script.src = '/jquery-2.1.1.js';
 script.type = 'text/javascript';
 
+
 google.load('visualization', '1.0', { 'packages': ['corechart'] });
 google.setOnLoadCallback(function () {
     var graphtype;
     var sqldatachart1;
     var newdata = new google.visualization.DataTable();
-    var xtitle;// = document.getElementById('xtitle').value;
-    var xwidth;// = document.getElementById('xwidth').value;
-    var xheight;// = document.getElementById('xheight').value;
 
     //TODO: make graph data editable ie top sales
     newdata.addColumn('string', 'date');
-    newdata.addColumn('number', 'testicles');
+    newdata.addColumn('number', xtitle );
     if (boxarray !== null) {
         //console.log(titleChk, widthChk, heightChk);
         console.log($('#ContentPlaceHolder1_graphselector').val());
@@ -23,21 +21,12 @@ google.setOnLoadCallback(function () {
           TODO: make options user defined variables
           TODO: bind user defined vairable from forms
         \==========================================*/
-        //if (titleChk.value != '') {
-        //    var xtitle = String(document.getElementById('x1title').value);
-        //}
-        //if (widthChk.value != 400) {
-        //    var xwidth = parseint(document.getElementById('xwidth').value);
-        //}
-        //if (heightChk.value != 400) {
-        //    var xheight = parseint(document.getElementById('xheight').value);
-        //}
-
         var options = {
             'title': xtitle || "",
             'width': xwidth || 400,
             'height': xheight || 400
         };
+
 
         $('#ContentPlaceHolder1_graphselector').change(function () {
             graphtype = $(this).val();

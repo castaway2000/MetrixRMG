@@ -73,6 +73,8 @@ namespace metric_generator
     {
         protected SqlDataClass sdc = new SqlDataClass();
         protected DataSet ds;
+        public string title;
+        public int width, height;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -107,6 +109,15 @@ namespace metric_generator
         {
             if (sdc.securitycheck(sqlDataInput()) == false)
             {
+                if (xwidth.Value != null || xheight.Value != null)
+                {
+                    width = Convert.ToInt32(xwidth.Value);
+                    height = Convert.ToInt32(xheight.Value);
+                }
+                if (xtitle.Value != null || xtitle.Value != "")
+                {
+                    title = xtitle.Value;
+                }
                 ds = sdc.SqlDataFill(sqlDataInput());
             }
             else
