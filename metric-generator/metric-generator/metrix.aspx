@@ -35,6 +35,11 @@
         }
         %>
         ];
+
+        var xtitle = "<% =title %>";
+        var xwidth = "<% =width %>";
+        var xheight = "<% =height %>";
+
     </script>
     <script type="text/javascript" src="js/GUIctl.js"></script>
 </asp:Content>
@@ -46,7 +51,8 @@
     <div id="grid" style="width: auto; height: auto"></div>
     <asp:DropDownList ID="graphselector" runat="server" CssClass="dropdown"
         Style="font-size: 11px" AutoPostBack="False">
-        <asp:ListItem Selected="True" Value="ColumnChart">Column Chart</asp:ListItem>
+        <asp:ListItem Selected="True">Select chart</asp:ListItem>
+        <asp:ListItem Value="ColumnChart">Column Chart</asp:ListItem>
         <asp:ListItem Value="BarChart">Bar Chart</asp:ListItem>
         <asp:ListItem Value="LineChart">Line Chart</asp:ListItem>
         <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
@@ -57,9 +63,9 @@
     <div id="selectionID" class="selection">
         <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
         <br />
-        Title:<input type="text" name="title" runat="server" id="xtitle" value="''"/>
+        Title:<input type="text" name="title" runat="server" id="xtitle" value ="enter text"/>
         Width:<input type="text" name="width" runat="server" id="xwidth" value ="400"/>
-        Height:<input type="text" name="height" runat="server" id="xheight" value="400"/>
+        Height:<input type="text" name="height" runat="server" id="xheight" value="400" />
         <asp:Button ID="DataSelectButton" Text="update query" runat="server" OnClick="btn1_Click" ></asp:Button>
     </div>
 </asp:Content>
