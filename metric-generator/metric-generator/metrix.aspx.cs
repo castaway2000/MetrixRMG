@@ -40,6 +40,8 @@ namespace metric_generator
 
         public bool securitycheck(String sqltext)
         {
+            string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate" };
+
             foreach (char c in sqltext)
             {
                 switch (c)
@@ -57,7 +59,7 @@ namespace metric_generator
                         }
                 }
             }
-            string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate" };
+
             for (int i = 0; i < badSqlList.Count(); i++)
             {
                 if (sqltext.Split(' ').Intersect(badSqlList, StringComparer.InvariantCultureIgnoreCase).Any())
@@ -80,21 +82,13 @@ namespace metric_generator
         {
             if (IsPostBack == false)
             {
-                String testsql = "select top 10 SA.OrderQty, SH.OrderDate " +
-                                 "as OrderDate from Sales.SalesOrderDetail as SA " +
-                                 "join Sales.SalesOrderHeader as SH " +
-                                 "on SA.SalesOrderID = SH.SalesOrderID " +
-                                 "order by SA.OrderQty desc;";
-                ds = sdc.SqlDataFill(testsql);
+                //add optional starting query here
             }
         }
 
         public void Message(string strMsg)
         {
-            string strScript = null;
-            strScript = "<script>";
-            strScript = strScript + "alert('" + strMsg + "');";
-            strScript = strScript + "</script>";
+            string strScript = "<script> alert('" + strMsg + "'); </script>";
             Page.RegisterStartupScript("ClientScript", strScript.ToString());
         }
 

@@ -11,13 +11,12 @@
 --%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+
     <script type="text/jquery" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript">
         /*======================================================\
          Javascript graph generator:
-         Itterare over the rows in the table using code behind
-         formatting should be done exclusivly in SQL.
+         Itterare over the rows in the table using code behind.
         \======================================================*/
 
         var boxarray = [
@@ -39,7 +38,6 @@
         var xtitle = "<% =title %>";
         var xwidth = "<% =width %>";
         var xheight = "<% =height %>";
-
     </script>
     <script type="text/javascript" src="js/GUIctl.js"></script>
 </asp:Content>
@@ -58,14 +56,15 @@
         <asp:ListItem Value="AreaChart">Area Chart</asp:ListItem>
         <asp:ListItem Value="PieChart">Pie Chart</asp:ListItem>
     </asp:DropDownList>
-    <input type="checkbox" id ="imgtickbox" /> click to activate savable images
+    <input type="checkbox" id="imgtickbox" />
+    click to activate savable images
     <!--data selection tick boxes and button -->
     <div id="selectionID" class="selection">
         <textarea rows="10" cols="90" id="sqlbox" runat="server">"Raw SQL query here"</textarea>
         <br />
-        Title:<input type="text" name="title" runat="server" id="xtitle" value ="enter text"/>
-        Width:<input type="text" name="width" runat="server" id="xwidth" value ="400"/>
+        Title:<input type="text" name="title" runat="server" id="xtitle" value="enter text" />
+        Width:<input type="text" name="width" runat="server" id="xwidth" value="400" />
         Height:<input type="text" name="height" runat="server" id="xheight" value="400" />
-        <asp:Button ID="DataSelectButton" Text="update query" runat="server" OnClick="btn1_Click" ></asp:Button>
+        <asp:Button ID="DataSelectButton" Text="update query" runat="server" OnClick="btn1_Click"></asp:Button>
     </div>
 </asp:Content>
