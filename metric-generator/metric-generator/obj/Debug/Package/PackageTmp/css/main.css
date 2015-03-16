@@ -1,0 +1,16 @@
+﻿body {
+    background-color:lightgrey;
+}
+.title {
+    background-color:black;
+}
+.header {
+    color:white;
+}
+#drag { 
+    width: 150px; height: 150px; padding: 0.5em; 
+
+}
+#Checkbox2 {
+    width: 22px;
+}

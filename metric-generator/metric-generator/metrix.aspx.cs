@@ -23,50 +23,61 @@ namespace metric_generator
     {
         public DataSet ds;
         public SqlConnection con = new SqlConnection(@"Data Source=BLAZE-TURBO;Initial Catalog=AdventureWorks;Integrated Security=True");
-
         public DataSet SqlDataFill(String sqltext)
         {
-            /*=======================================================\
-                Change the SQL connection to your own sql/mysql server
-              * and the default SQL statement to your own if you want 
-              * a graph to populate on load
-              * the default database used is AdventureWorks
-            \=======================================================*/
-            SqlDataAdapter ad = new SqlDataAdapter(sqltext, con);
-            ds = new DataSet();
-            ad.Fill(ds);
+            try
+            {
+                /*=======================================================\
+                    Change the SQL connection to your own sql/mysql server
+                  * and the default SQL statement to your own if you want 
+                  * a graph to populate on load
+                  * the default database used is AdventureWorks
+                \=======================================================*/
+                SqlDataAdapter ad = new SqlDataAdapter(sqltext, con);
+                ds = new DataSet();
+                ad.Fill(ds);
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
             return ds;
         }
 
         public bool securitycheck(String sqltext)
         {
-            string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate" };
-
-            foreach (char c in sqltext)
+            try
             {
-                switch (c)
+                string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate" };
+
+                foreach (char c in sqltext)
                 {
-                    case '[':
-                    case ']':
-                    case '%':
-                    case '*':
-                        {
-                            return true;
-                        }
-                    default:
-                        {
-                            break;
-                        }
+                    switch (c)
+                    {
+                        case '[':
+                        case ']':
+                        case '%':
+                        case '*':
+                            {
+                                return true;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                }
+
+
+                for (int i = 0; i < badSqlList.Count(); i++)
+                {
+                    if (sqltext.Split(' ').Intersect(badSqlList, StringComparer.InvariantCultureIgnoreCase).Any())
+                    {
+                        return true;
+                    }
                 }
             }
-
-            for (int i = 0; i < badSqlList.Count(); i++)
-            {
-                if (sqltext.Split(' ').Intersect(badSqlList, StringComparer.InvariantCultureIgnoreCase).Any())
-                {
-                    return true;
-                }
-            }
+            catch (Exception e) { throw e; }
             return false;
         }
     }
@@ -80,10 +91,15 @@ namespace metric_generator
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack == false)
+            try
             {
-                //add optional starting query here
+                if (IsPostBack == false)
+                {
+                    //add optional starting query here
+                }
             }
+            catch (SqlException se) { Message(Convert.ToString(se)); }
+            catch (Exception ex) { Message(Convert.ToString(ex)); }
         }
 
         public void Message(string strMsg)
@@ -101,23 +117,28 @@ namespace metric_generator
 
         protected void btn1_Click(object sender, EventArgs e)
         {
-            if (sdc.securitycheck(sqlDataInput()) == false)
+            try
             {
-                if (xwidth.Value != null || xheight.Value != null)
+                if (sdc.securitycheck(sqlDataInput()) == false)
                 {
-                    width = Convert.ToInt32(xwidth.Value);
-                    height = Convert.ToInt32(xheight.Value);
+                    if (xwidth.Value != null || xheight.Value != null)
+                    {
+                        width = Convert.ToInt32(xwidth.Value);
+                        height = Convert.ToInt32(xheight.Value);
+                    }
+                    if (xtitle.Value != null || xtitle.Value != "")
+                    {
+                        title = xtitle.Value;
+                    }
+                    ds = sdc.SqlDataFill(sqlDataInput());
                 }
-                if (xtitle.Value != null || xtitle.Value != "")
+                else
                 {
-                    title = xtitle.Value;
+                    Message("NO DESTRUCTIVE QUERIES ALLOWED. SELECT STATEMENTS ONLY!");
                 }
-                ds = sdc.SqlDataFill(sqlDataInput());
             }
-            else
-            {
-                Message("NO DESTRUCTIVE QUERIES ALLOWED. SELECT STATEMENTS ONLY!");
-            }
+            catch (SqlException se) { Message(Convert.ToString(se)); }
+            catch (Exception ex) { Message(Convert.ToString(ex)); }
         }
     }
 }
