@@ -78,7 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\GUIctl.js" />
-    <Content Include="images\food.jpg" />
     <Content Include="js\jquery-2.1.1.js" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="css\main.css" />
@@ -106,6 +105,8 @@
     <Content Include="packages.config" />
     <Content Include="rmg.Master" />
     <None Include="Properties\PublishProfiles\rmg.pubxml" />
+    <None Include="Properties\PublishProfiles\rmgdemo.pubxml" />
+    <None Include="Properties\PublishProfiles\rmgv1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

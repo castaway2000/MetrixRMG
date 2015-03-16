@@ -1,5 +1,6 @@
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\metric-generator.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\metric-generator.pdb
+C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\GoogleVisualizationAPI.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\Newtonsoft.Json.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\System.Net.Http.Formatting.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\System.Web.Http.dll
@@ -10,5 +11,4 @@ C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bi
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\System.Web.Http.WebHost.xml
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\obj\Release\metric-generator.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\obj\Release\metric-generator.pdb
-C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\GoogleVisualizationAPI.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\obj\Release\metric-generator.csprojResolveAssemblyReference.cache

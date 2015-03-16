@@ -23,3 +23,4 @@ C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bi
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\System.Web.Http.WebHost.xml
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\obj\Debug\metric-generator.dll
 C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\obj\Debug\metric-generator.pdb
+C:\Users\Blaze\Documents\GitHub\MetrixRMGv1\metric-generator\metric-generator\bin\GoogleVisualizationAPI.dll
