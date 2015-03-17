@@ -1,7 +1,7 @@
 ﻿/*
         Metrix RMG: (R)apid (M)etrics (G)enerator Version 1.0
         Written and Coded by Adam Szablya
-        Project Started on:11/15/2014
+        Project Started on:1/2/2015
 
         Licencing Information:
         Metrix RMG Version 1.0 is freely useable and re-distributable
