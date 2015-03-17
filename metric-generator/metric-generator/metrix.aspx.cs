@@ -22,7 +22,7 @@ namespace metric_generator
     public class SqlDataClass
     {
         public DataSet ds;
-        public SqlConnection con = new SqlConnection(@"Data Source=BLAZE-TURBO;Initial Catalog=AdventureWorks;Integrated Security=True");
+        public SqlConnection con = new SqlConnection(@"Data Source=BLAZE-TURBO; Initial Catalog=AdventureWorks;Integrated Security=True;");
         public DataSet SqlDataFill(String sqltext)
         {
             try
@@ -48,12 +48,13 @@ namespace metric_generator
         {
             try
             {
-                string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate" };
+                string[] badSqlList = new string[] { "insert", "update", "delete", "drop", "truncate", "alter" };
 
                 foreach (char c in sqltext)
                 {
                     switch (c)
                     {
+                        case '@':
                         case '[':
                         case ']':
                         case '%':
