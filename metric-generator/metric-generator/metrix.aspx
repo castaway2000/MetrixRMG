@@ -26,9 +26,9 @@
             foreach (DataRow row in this.ds.Tables[0].Rows)
             {
                 Response.Write("[\"");
-                Response.Write(((DateTime)row.ItemArray[1]).ToString("yyyy-MM-dd"));
+                Response.Write(row.ItemArray[1].ToString());
                 Response.Write("\",");
-                Response.Write(row.ItemArray[0]);
+                Response.Write(row.ItemArray[0].ToString());
                 Response.Write("],\r\n");
             }
         }
